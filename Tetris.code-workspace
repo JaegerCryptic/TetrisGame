@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "Game"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"include.h": "c"
+		}
+	}
+}

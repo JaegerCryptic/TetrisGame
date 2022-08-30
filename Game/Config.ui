@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>ConfigureWindow</class>
+ <widget class="QMainWindow" name="ConfigureWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -114,7 +114,7 @@ QPushButton
       <string>Game Level</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="ExitBtn">
+    <widget class="QPushButton" name="ReturnBtn">
      <property name="geometry">
       <rect>
        <x>-110</x>
@@ -444,7 +444,7 @@ QPushButton
     <zorder>ConfigBtn_2</zorder>
     <zorder>ScoreBtn</zorder>
     <zorder>ConfigBtn</zorder>
-    <zorder>ExitBtn</zorder>
+    <zorder>ReturnBtn</zorder>
     <zorder>label_8</zorder>
     <zorder>ConfigBtn_3</zorder>
     <zorder>checkBox_2</zorder>

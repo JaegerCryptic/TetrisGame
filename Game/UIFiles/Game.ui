@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Tetris</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="minimumSize">
@@ -68,48 +68,6 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QPushButton" name="ExitBtn_5">
-     <property name="geometry">
-      <rect>
-       <x>510</x>
-       <y>320</y>
-       <width>71</width>
-       <height>33</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Segoe Print</family>
-       <pointsize>14</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border: none;
-color: green;
-QPushButton
-{
-	color: white;
-}</string>
-     </property>
-     <property name="text">
-      <string>Score:</string>
-     </property>
-     <property name="autoDefault">
-      <bool>false</bool>
-     </property>
-    </widget>
-    <widget class="QGraphicsView" name="graphicsView">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>40</y>
-       <width>621</width>
-       <height>321</height>
-      </rect>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
@@ -266,12 +224,25 @@ QPushButton
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QPushButton" name="ExitBtn_6">
+    <widget class="QFrame" name="Board">
      <property name="geometry">
       <rect>
-       <x>510</x>
-       <y>290</y>
-       <width>71</width>
+       <x>10</x>
+       <y>40</y>
+       <width>621</width>
+       <height>301</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: rgba(0,0,0,0.7);</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="StartBtn">
+     <property name="geometry">
+      <rect>
+       <x>570</x>
+       <y>0</y>
+       <width>62</width>
        <height>33</height>
       </rect>
      </property>
@@ -283,96 +254,160 @@ QPushButton
        <bold>true</bold>
       </font>
      </property>
+     <property name="mouseTracking">
+      <bool>false</bool>
+     </property>
      <property name="styleSheet">
       <string notr="true">border: none;
 color: green;
-QPushButton
-{
+
+QPushButton::pressed 
+{ 
 	color: white;
+ }
+
+QPushButton::hover
+{
+	 text-decoration: underline; 
+	text-decoration-color: green;	
 }</string>
      </property>
      <property name="text">
-      <string>Lines:</string>
+      <string>GP:13</string>
      </property>
-     <property name="autoDefault">
+     <property name="checkable">
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QPushButton" name="ExitBtn_7">
+    <widget class="QWidget" name="">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>50</y>
-       <width>114</width>
-       <height>33</height>
+       <x>10</x>
+       <y>340</y>
+       <width>621</width>
+       <height>38</height>
       </rect>
      </property>
-     <property name="font">
-      <font>
-       <family>Segoe Print</family>
-       <pointsize>14</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border: none;
-color: green;
-QPushButton
-{
-	color: white;
-}</string>
-     </property>
-     <property name="text">
-      <string>Gamemode:</string>
-     </property>
-     <property name="autoDefault">
-      <bool>false</bool>
-     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="pushButton">
+        <property name="font">
+         <font>
+          <family>Segoe Print</family>
+          <pointsize>12</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: white;
+background: grey;
+background: rgba(105,105,105,0.7);</string>
+        </property>
+        <property name="text">
+         <string>Lines</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="font">
+         <font>
+          <family>Segoe Print</family>
+          <pointsize>12</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: white;
+background: grey;
+background: rgba(105,105,105,0.7);</string>
+        </property>
+        <property name="text">
+         <string>Score</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_10">
+        <property name="font">
+         <font>
+          <family>Segoe Print</family>
+          <pointsize>12</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: white;
+background: grey;
+background: rgba(105,105,105,0.7);</string>
+        </property>
+        <property name="text">
+         <string>Player</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_11">
+        <property name="font">
+         <font>
+          <family>Segoe Print</family>
+          <pointsize>12</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: white;
+background: grey;
+background: rgba(105,105,105,0.7);</string>
+        </property>
+        <property name="text">
+         <string>Level</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_12">
+        <property name="font">
+         <font>
+          <family>Segoe Print</family>
+          <pointsize>12</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: white;
+background: grey;
+background: rgba(105,105,105,0.7);</string>
+        </property>
+        <property name="text">
+         <string>Normal</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+     <zorder>pushButton_12</zorder>
+     <zorder>pushButton_11</zorder>
+     <zorder>pushButton_10</zorder>
+     <zorder>pushButton</zorder>
+     <zorder>pushButton_2</zorder>
     </widget>
-    <widget class="QPushButton" name="ExitBtn_8">
-     <property name="geometry">
-      <rect>
-       <x>540</x>
-       <y>50</y>
-       <width>77</width>
-       <height>33</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Segoe Print</family>
-       <pointsize>14</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border: none;
-color: green;
-QPushButton
-{
-	color: white;
-}</string>
-     </property>
-     <property name="text">
-      <string>Normal:</string>
-     </property>
-     <property name="autoDefault">
-      <bool>false</bool>
-     </property>
-    </widget>
-    <zorder>graphicsView</zorder>
-    <zorder>ExitBtn_5</zorder>
+    <zorder>Board</zorder>
     <zorder>label_3</zorder>
     <zorder>label_5</zorder>
     <zorder>label_7</zorder>
     <zorder>label_6</zorder>
     <zorder>label_4</zorder>
     <zorder>label_8</zorder>
-    <zorder>ExitBtn_6</zorder>
-    <zorder>ExitBtn_7</zorder>
-    <zorder>ExitBtn_8</zorder>
+    <zorder>StartBtn</zorder>
+    <zorder></zorder>
    </widget>
   </widget>
  </widget>

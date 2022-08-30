@@ -4,11 +4,13 @@ from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QApplication, QMessageBox
 from PyQt5.QtCore import Qt
 
+import Block
+
 class StartWindow(QtWidgets.QMainWindow):
         def __init__(self):
                 super(StartWindow, self).__init__()
-                loadUi("Startup.ui", self)
-                
+                loadUi("UIFiles//Startup.ui", self)
+
                 self.ConfigBtn.clicked.connect(self.gotoConfig)
                 self.ExitBtn.clicked.connect(exit)
                 self.ScoreBtn.clicked.connect(self.gotoScore)
@@ -26,23 +28,31 @@ class StartWindow(QtWidgets.QMainWindow):
 class ConfigtWindow(QtWidgets.QMainWindow):
         def __init__(self):
                 super(ConfigtWindow, self).__init__()
-                loadUi("Config.ui", self)
+                loadUi("UIFiles//Config.ui", self)
 
                 self.ReturnBtn.clicked.connect(lambda: goBack(self,2))
 
 class ScoreWindow(QtWidgets.QMainWindow):
         def __init__(self):
                 super(ScoreWindow, self).__init__()
-                loadUi("Score.ui", self)
+                loadUi("UIFiles//Score.ui", self)
 
                 self.ReturnBtn.clicked.connect(lambda: goBack(self,1))
 
 class GameWindow(QtWidgets.QMainWindow):
         def __init__(self):
                 super(GameWindow, self).__init__()
-                loadUi("Game.ui", self)
+                loadUi("UIFiles//Game.ui", self)
                 
-        
+               
+                # Initialize Dynamic variables and elements
+                
+                
+                Block.Board.InitGame(self)
+                
+                
+                
+       
         def keyPressEvent(self, event):
                 if event.key() == Qt.Key_Escape:
                         self.close()

@@ -1,7 +1,8 @@
 import sys
 from PyQt5.uic import loadUi
 from PyQt5 import QtWidgets
-from PyQt5.QtWidgets import QDialog, QApplication
+from PyQt5.QtWidgets import QApplication, QMessageBox
+from PyQt5.QtCore import Qt
 
 class StartWindow(QtWidgets.QMainWindow):
         def __init__(self):
@@ -40,6 +41,22 @@ class GameWindow(QtWidgets.QMainWindow):
         def __init__(self):
                 super(GameWindow, self).__init__()
                 loadUi("Game.ui", self)
+                
+        
+        def keyPressEvent(self, event):
+                if event.key() == Qt.Key_Escape:
+                        self.close()
+        
+        def closeEvent(self, event):
+            reply = QMessageBox.question(
+            self, "Confirm",
+            "Are you sure you want to quit?", QMessageBox.Yes | QMessageBox.No)
+
+            if reply == QMessageBox.Yes:
+                goBack(self, 3)
+            else:
+                event.ignore()    
+
 
 def goBack(self, index):
         widget.setCurrentIndex(widget.currentIndex()-index)

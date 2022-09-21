@@ -194,7 +194,7 @@ class Shape:
         return True
 
     def rotate(self, rows, columns, board):
-        if self.shape[-1] != 'blue':
+        if self.shape[-1] != 'yellow':
             tmp_position = copy.deepcopy(self.shape)
             for item in tmp_position[:-2]:
                 item[0], item[1] = item[1], -item[0]

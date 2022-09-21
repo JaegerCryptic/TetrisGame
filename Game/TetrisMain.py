@@ -4,8 +4,10 @@ from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QApplication, QMessageBox
 from PyQt5.QtCore import Qt
 
-import Block
+import Board
 
+
+# Initialize Starting window for application
 class StartWindow(QtWidgets.QMainWindow):
         def __init__(self):
                 super(StartWindow, self).__init__()
@@ -25,6 +27,7 @@ class StartWindow(QtWidgets.QMainWindow):
         def gotoGame(self):
                 widget.setCurrentIndex(widget.currentIndex()+3)
 
+# Initialize configuration window and define actions
 class ConfigtWindow(QtWidgets.QMainWindow):
         def __init__(self):
                 super(ConfigtWindow, self).__init__()
@@ -32,31 +35,27 @@ class ConfigtWindow(QtWidgets.QMainWindow):
 
                 self.ReturnBtn.clicked.connect(lambda: goBack(self,2))
 
+# Initialize score window and define actions
 class ScoreWindow(QtWidgets.QMainWindow):
         def __init__(self):
                 super(ScoreWindow, self).__init__()
                 loadUi("UIFiles//Score.ui", self)
-
                 self.ReturnBtn.clicked.connect(lambda: goBack(self,1))
 
+# Initialize game window and define actions
 class GameWindow(QtWidgets.QMainWindow):
         def __init__(self):
                 super(GameWindow, self).__init__()
-                loadUi("UIFiles//Game.ui", self)
+                loadUi("UIFiles//Game.ui", self)        
+                # Initialize Dynamic variables and elements   
+                Board.GameBoard.initGame(self)
                 
-               
-                # Initialize Dynamic variables and elements
-                
-                
-                Block.Board.InitGame(self)
-                
-                
-                
-       
         def keyPressEvent(self, event):
+                Board.GameBoard.keyPressEvent(self, event)
                 if event.key() == Qt.Key_Escape:
                         self.close()
         
+        # Close application
         def closeEvent(self, event):
             reply = QMessageBox.question(
             self, "Confirm",
@@ -66,7 +65,6 @@ class GameWindow(QtWidgets.QMainWindow):
                 goBack(self, 3)
             else:
                 event.ignore()    
-
 
 def goBack(self, index):
         widget.setCurrentIndex(widget.currentIndex()-index)

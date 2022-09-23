@@ -41,7 +41,7 @@ class GameBoard:
         
         # set counter
         self.timer = QTimer()
-        self.timer.timeout.connect(lambda: GameBoard.counter_event(self))
+        self.timer.timeout.connect(lambda: GameBoard.counterEvent(self))
 
         #Initialze board rows and columns
         for row in range(self.rows):
@@ -117,8 +117,8 @@ class GameBoard:
                 else:
                     sheet = "background-color:darkblue"
                     self.label[counter_row, counter_column].setStyleSheet(sheet)
-    
-    def counter_event(self):
+    # Timer is running and move can be made in time with timer
+    def counterEvent(self):
         if self.game_running is True:
             GameBoard.checkDownMove(self)
 
